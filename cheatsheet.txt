@@ -1,7 +1,7 @@
 // create navigation component
 app.component('navigation', {
     templateUrl: 'components/navigation/navigation.html'
-}
+});
 
 // create navigation html - copied from getting started examples on bootstrap website
 <nav class="navbar navbar-inverse">
