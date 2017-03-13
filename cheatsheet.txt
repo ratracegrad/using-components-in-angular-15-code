@@ -1,61 +1,133 @@
-// create showMakes component
-app.component('showMakes', {
-  templateUrl: 'components/showMakes/showMakes.html',
+// create showModels component
+app.component('showModels', {
+  templateUrl: 'components/showModels/showModels.html',
   bindings: {
-    make: '='
+    make: '<',
+    model: '='
   },
-  controller: "MakePickerCtrl"
+  controller: "ModelPickerCtrl"
 });
 
-app.controller('MakePickerCtrl', function() {
-  this.makes = [
-    {
-      'key': 'Buick',
-      'value': 'Buick'
-    },
-    {
-      'key': 'Chevrolet',
-      'value': 'Chevrolet'
-    },
-    {
-      'key': 'Ford',
-      'value': 'Ford'
-    },
-    {
-      'key': 'Kia',
-      'value': 'Kia'
-    },
-    {
-      'key': 'Mazda',
-      'value': 'Mazda'
-    },
-    {
-      'key': 'Nissan',
-      'value': 'Nissan'
-    }
-  ];
+app.controller('ModelPickerCtrl', function() {
+    this.models = {
+      'Buick': {
+        models: [
+          {
+            'key': 'Enclave',
+            'value': 'Enclave'
+          },
+          {
+            'key': 'Encore',
+            'value': 'Encore'
+          },
+          {
+            'key': 'Envision',
+            'value': 'Envision'
+          }
+        ],
+        images: []
+      },
+      'Chevrolet': {
+        models: [
+          {
+            'key': 'Camero',
+            'value': 'Camero'
+          },
+          {
+            'key': 'Colorado',
+            'value': 'Colorado'
+          },
+          {
+            'key': 'Corvette',
+            'value': 'Corvette'
+          }
+        ],
+        images: []
+      },
+      'Ford': {
+        models: [
+          {
+            'key': 'Edge',
+            'value': 'Edge'
+          },
+          {
+            'key': 'Escape',
+            'value': 'Escape'
+          },
+          {
+            'key': 'Explorer',
+            'value': 'Explorer'
+          }
+        ],
+        images: []
+      },
+      'Kia': {
+        models: [
+          {
+            'key': 'Forte',
+            'value': 'Forte'
+          },
+          {
+            'key': 'Optima',
+            'value': 'Optima'
+          },
+          {
+            'key': 'Sedona',
+            'value': 'Sedona'
+          }
+        ],
+        images: []
+      },
+      'Mazda': {
+        models: [
+          {
+            'key': 'CX-3',
+            'value': 'CX-3'
+          },
+          {
+            'key': 'Mazda 3',
+            'value': 'Mazda 3'
+          },
+          {
+            'key': 'MX-5 Miata',
+            'value': 'MX-5 Miata'
+          }
+        ],
+        images: []
+      },
+      'Nissan': {
+        models: [
+          {
+            'key': 'Altima',
+            'value': 'Altima'
+          },
+          {
+            'key': 'Maxima',
+            'value': 'Maxima'
+          },
+          {
+            'key': 'Pathfinder',
+            'value': 'Pathfinder'
+          }
+        ],
+        images: []
+      }
+    };
 });
 
-// create showMakes html
+// create showModels html
 <div class="col-xs-5">
-    <ui-select ng-model="$ctrl.make"
+    <ui-select ng-model="$ctrl.model"
                theme="bootstrap">
-        <ui-select-match placeholder="Select a Make">{{$select.selected.value}}</ui-select-match>
-        <ui-select-choices repeat="make in $ctrl.makes | filter: $select.search track by make.value">
-            <div ng-bind="make.value | highlight: $select.search"></div>
+        <ui-select-match placeholder="Select a Model">{{$select.selected.value}}</ui-select-match>
+        <ui-select-choices repeat="model in $ctrl.models[$ctrl.make.value].models  | filter: $select.search track by model.value">
+            <div ng-bind="model.value | highlight: $select.search"></div>
         </ui-select-choices>
     </ui-select>
 </div>
 
-// add ui-select js and css to index.html
-<link rel="stylesheet" href="vendor/select.css">
-<script src="vendor/select.js"></script>
+// add showModels component to our index.html
+<script src="components/showModels/showModels.js"></script>
 
-// add ui-select to dependencies for our application
-const app = angular.module('caranddriver', [  'ui.select']);
-
-// add showMakes component to our index.html
-<script src="components/showMakes/showMakes.js"></script>
-
-//add our showMakes component to our carPicker html file
-<show-makes></show-makes>
+//add our showModels component to our carPicker html file
+<show-models make="$ctrl.selectedMake" model="$ctrl.selectedModel" ng-show="$ctrl.selectedMake"></show-models>
