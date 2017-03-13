@@ -1,32 +1,33 @@
-// create navigation component
-app.component('navigation', {
-    templateUrl: 'components/navigation/navigation.html'
+// create carPicker component
+app.component('carPicker', {
+    templateUrl: 'components/carPicker/carPicker.html'
 });
 
-// create navigation html - copied from getting started examples on bootstrap website
-<nav class="navbar navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Car and Driver</a>
+// create carPicker html
+<div class="container">
+    <div class="col-xs-12">
+        <header class="mm-header">Research Vehicles</header>
+        <p class="mm-sub-header">By Make and Model</p>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">New Cars</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">News</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
+</div>
 
-// add navigation component to our index.html
-<script src="components/navigation/navigation.js"></script>
+// add styling in style.css for our mm-header and mm-sub-header classes
+.mm-header {
+    font: 700 26px/26px Helvetica, Arial, sans-serif;
+    margin: .9375rem 0;
+    letter-spacing: -.025rem;
+}
 
-//add our navigation to the body of our application
-<navigaton></navigation>
+.mm-sub-header {
+    margin-bottom: 1.25rem;
+    color: #666;
+    font: 14px/14px Helvetica, Arial, sans-serif;
+    letter-spacing: .02188rem;
+}
+
+
+// add carPicker component to our index.html
+<script src="components/carPicker/carPicker.js"></script>
+
+//add our carPicker component to the body of our application
+<car-picker></car-picker>
