@@ -3,6 +3,11 @@ app.component('carPicker', {
     templateUrl: 'components/carPicker/carPicker.html'
 });
 
+app.controller('CarPickerCtrl', function() {
+    this.selectedMake = null;
+    this.selectedModel = null;
+});
+
 // create carPicker html
 <div class="container">
     <div class="col-xs-12">
