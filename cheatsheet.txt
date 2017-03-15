@@ -1,0 +1,32 @@
+// create navigation component
+app.component('navigation', {
+    templateUrl: 'components/navigation/navigation.html'
+});
+
+// create navigation html - copied from getting started examples on bootstrap website
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Car and Driver</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">New Cars</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+// add navigation component to our index.html
+<script src="components/navigation/navigation.js"></script>
+
+//add our navigation to the body of our application
+<navigaton></navigation>
